@@ -17,6 +17,8 @@ function input_with_default() {
 figlet CCMINER INSTALLER
 echo "by Takumi Tesla"
 echo "github : https://github.com/takumitesla/"
+echo ""
+echo ""
 # Meminta input untuk wallet dan worker
 wallet=$(input_with_default "Masukkan Wallet (default: RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a): " "RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a")
 worker=$(input_with_default "Masukkan Nama Worker (contoh: Redmi4x1): " "worker")
