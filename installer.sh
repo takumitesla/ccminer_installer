@@ -32,7 +32,7 @@ cat <<EOF > config.json
 {
     "pools": [{
         "name": "SG-VIPOR",
-        "url": "stratum+tcp://sg.vipor.net:5077",
+        "url": "stratum+tcp://sg.vipor.net:5040",
         "timeout": 180,
         "disabled": 0
     }],
