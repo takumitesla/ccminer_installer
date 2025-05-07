@@ -49,7 +49,7 @@ cat <<EOF > config.json
 EOF
 
 # Memberikan izin eksekusi pada file ccminer dan start.sh
-chmod +x ccminer start.sh
+chmod +x ~/ccminer/ccminer
 
 # Menambahkan perintah untuk menjalankan start.sh saat membuka Termux
 echo "~/ccminer/ccminer -c ~/ccminer/config.json" >> ~/.bashrc
