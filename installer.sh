@@ -65,3 +65,11 @@ echo "~/ccminer/ccminer -c ~/ccminer/config.json" >> ~/.bashrc
 # Memberikan informasi selesai
 clear
 echo "Instalasi selesai!"
+
+sleep 1
+echo ""
+echo "memulai mining...."
+
+sleep 3
+clear
+~/ccminer/ccminer -c ~/ccminer/config.json
