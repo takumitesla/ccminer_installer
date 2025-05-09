@@ -23,6 +23,9 @@ echo ""
 wallet=$(input_with_default "Masukkan Wallet (default: RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a): " "RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a")
 worker=$(input_with_default "Masukkan Nama Worker (contoh: Redmi4x1): " "worker")
 threads=$(input_with_default "Masukkan Jumlah Threads (contoh: 8): " "8")
+pool_url=$(input_with_default "Masukkan URL Pool (contoh: stratum+tcp://sg.vipor.net:5040): " "stratum+tcp://sg.vipor.net:5040")
+pool_name=$(input_with_default "Masukkan Nama Pool (contoh: SG-VIPOR): " "SG-VIPOR")
+
 clear
 # Menginstal paket yang diperlukan
 pkg install libjansson nano -y
@@ -37,8 +40,8 @@ wget https://raw.githubusercontent.com/Darktron/pre-compiled/generic/ccminer
 cat <<EOF > config.json
 {
     "pools": [{
-        "name": "SG-VIPOR",
-        "url": "stratum+tcp://sg.vipor.net:5040",
+        "name": "$pool_name",
+        "url": "$pool_url",
         "timeout": 180,
         "disabled": 0
     }],
