@@ -79,4 +79,4 @@ echo "start mining...."
 
 sleep 1
 clear
-$HOME/ccminer/ccminer -c $HOME/ccminer/config.json
+"$HOME/ccminer/ccminer" -c "$HOME/ccminer/config.json"
