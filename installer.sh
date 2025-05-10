@@ -40,7 +40,7 @@ wget https://raw.githubusercontent.com/Darktron/pre-compiled/generic/ccminer
 
 # Membuat file config.json dengan isi sesuai permintaan
 echo "creating configuration..."
-cat <<EOF > "$HOME/ccminer"
+cat <<EOF > "$HOME/ccminer/config.json"
 {
     "pools": [{
         "name": "$pool_name",
