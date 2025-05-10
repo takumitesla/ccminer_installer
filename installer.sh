@@ -13,9 +13,9 @@ function input_with_default() {
 }
 
 echo "CCMINER_INSTALLER"
-echo "version : 1.0.0\n"
+echo -e "version : 1.0.0\n"
 echo "by Takumi Tesla"
-echo "github : https://github.com/takumitesla/\n"
+echo -e "github : https://github.com/takumitesla/\n"
 
 # Meminta input untuk wallet dan worker
 wallet=$(input_with_default "Masukkan Wallet (default: RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a): " "RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a")
@@ -26,7 +26,7 @@ pool_name=$(input_with_default "Masukkan Nama Pool (contoh: SG-VIPOR): " "SG-VIP
 
 clear
 # Menginstal paket yang diperlukan
-echo "installing dependency..\n"
+echo -e "installing dependency..\n"
 pkg install libjansson nano -y
 clear
 
@@ -73,7 +73,7 @@ fi
 
 # Memberikan informasi selesai
 clear
-echo "installation success!\n"
+echo -e "installation success!\n"
 sleep 1
 echo "start mining...."
 
