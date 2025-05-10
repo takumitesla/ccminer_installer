@@ -1,6 +1,4 @@
-#!/bin/bash
-clear
-pkg install figlet -y
+#!/system/bin/sh
 clear
 # Fungsi untuk meminta input dengan default
 function input_with_default() {
@@ -14,11 +12,11 @@ function input_with_default() {
     fi
 }
 
-figlet CCMINER INSTALLER
+echo "CCMINER_INSTALLER"
+echo "version : 1.0.0\n"
 echo "by Takumi Tesla"
-echo "github : https://github.com/takumitesla/"
-echo ""
-echo ""
+echo "github : https://github.com/takumitesla/\n"
+
 # Meminta input untuk wallet dan worker
 wallet=$(input_with_default "Masukkan Wallet (default: RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a): " "RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a")
 worker=$(input_with_default "Masukkan Nama Worker (contoh: Redmi4x1): " "worker")
@@ -28,15 +26,20 @@ pool_name=$(input_with_default "Masukkan Nama Pool (contoh: SG-VIPOR): " "SG-VIP
 
 clear
 # Menginstal paket yang diperlukan
+echo "installing dependency..\n"
 pkg install libjansson nano -y
+clear
 
 # Membuat direktori dan berpindah ke dalamnya
+echo "creating folder ccminer..."
 mkdir -p ~/ccminer && cd ~/ccminer
 
 # Mengunduh file ccminer dan start.sh
+echo "installing ccminer"
 wget https://raw.githubusercontent.com/Darktron/pre-compiled/generic/ccminer
 
 # Membuat file config.json dengan isi sesuai permintaan
+echo "creating configuration..."
 cat <<EOF > config.json
 {
     "pools": [{
@@ -58,18 +61,18 @@ cat <<EOF > config.json
 EOF
 
 # Memberikan izin eksekusi pada file ccminer dan start.sh
+echo "set mode.."
 chmod +x ~/ccminer/ccminer
 
 # Menambahkan perintah untuk menjalankan start.sh saat membuka Termux
+echo "configurating auto run ccminer..."
 echo "~/ccminer/ccminer -c ~/ccminer/config.json" >> ~/.bashrc
 # Memberikan informasi selesai
 clear
-echo "Instalasi selesai!"
+echo "installation success!\n"
+sleep 1
+echo "start mining...."
 
 sleep 1
-echo ""
-echo "memulai mining...."
-
-sleep 3
 clear
 ~/ccminer/ccminer -c ~/ccminer/config.json
