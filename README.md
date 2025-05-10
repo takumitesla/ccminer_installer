@@ -1,5 +1,7 @@
 # ccminer installer for verus mining on android
 
+auto mining verus if you open termux
+
 # How to install
 
 pkg update && pkg upgrade -y
@@ -11,4 +13,6 @@ wget https://raw.githubusercontent.com/takumitesla/ccminer_installer/master/inst
 chmod +x ccminer installer.sh
 
 ./installer.sh
+
+
 
