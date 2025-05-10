@@ -1,6 +1,6 @@
-ccminer installer for verus mining on android
+# ccminer installer for verus mining on android
 
-
+# How to install
 
 pkg update && pkg upgrade -y
 
