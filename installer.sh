@@ -32,7 +32,7 @@ clear
 
 # Membuat direktori dan berpindah ke dalamnya
 echo "creating folder ccminer..."
-mkdir -p ~/ccminer && cd ~/ccminer
+mkdir -p "$HOME/ccminer" && cd "$HOME/ccminer"
 
 # Mengunduh file ccminer dan start.sh
 echo "installing ccminer"
@@ -40,7 +40,7 @@ wget https://raw.githubusercontent.com/Darktron/pre-compiled/generic/ccminer
 
 # Membuat file config.json dengan isi sesuai permintaan
 echo "creating configuration..."
-cat <<EOF > config.json
+cat <<EOF > "$HOME/ccminer"
 {
     "pools": [{
         "name": "$pool_name",
@@ -62,13 +62,13 @@ EOF
 
 # Memberikan izin eksekusi pada file ccminer dan start.sh
 echo "set mode.."
-chmod +x ~/ccminer/ccminer
+chmod +x "$HOME/ccminer/ccminer"
 
 # Menambahkan perintah untuk menjalankan start.sh saat membuka Termux
 echo "configurating auto run ccminer..."
 
-if ! grep -q "ccminer -c ~/ccminer/config.json" ~/.bashrc; then
-    echo "~/ccminer/ccminer -c ~/ccminer/config.json" >> ~/.bashrc
+if ! grep -q "ccminer -c $HOME/ccminer/config.json" ~/.bashrc; then
+    echo "$HOME/ccminer/ccminer -c $HOME/ccminer/config.json" >> ~/.bashrc
 fi
 
 # Memberikan informasi selesai
@@ -79,4 +79,4 @@ echo "start mining...."
 
 sleep 1
 clear
-~/ccminer/ccminer -c ~/ccminer/config.json
+$HOME/ccminer/ccminer -c $HOME/ccminer/config.json
