@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/bin/bash
 clear
 # Fungsi untuk meminta input dengan default
 function input_with_default() {
@@ -66,7 +66,11 @@ chmod +x ~/ccminer/ccminer
 
 # Menambahkan perintah untuk menjalankan start.sh saat membuka Termux
 echo "configurating auto run ccminer..."
-echo "~/ccminer/ccminer -c ~/ccminer/config.json" >> ~/.bashrc
+
+if ! grep -q "ccminer -c ~/ccminer/config.json" ~/.bashrc; then
+    echo "~/ccminer/ccminer -c ~/ccminer/config.json" >> ~/.bashrc
+fi
+
 # Memberikan informasi selesai
 clear
 echo "installation success!\n"
