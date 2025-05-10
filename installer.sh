@@ -12,7 +12,7 @@ function input_with_default() {
     fi
 }
 
-echo "CCMINER_INSTALLER"
+echo -e "CCMINER_INSTALLER\n"
 echo -e "version : 1.0.0\n"
 echo "by Takumi Tesla"
 echo -e "github : https://github.com/takumitesla/\n"
@@ -26,20 +26,30 @@ pool_name=$(input_with_default "Masukkan Nama Pool (contoh: SG-VIPOR): " "SG-VIP
 
 clear
 # Menginstal paket yang diperlukan
-echo -e "installing dependency..\n"
-pkg install libjansson nano -y
+echo -e "Installing dependencies...\n"
+pkg update && pkg upgrade -y
+pkg install wget libjansson nano -y
 clear
 
 # Membuat direktori dan berpindah ke dalamnya
-echo "creating folder ccminer..."
+echo "Creating folder ccminer..."
 mkdir -p "$HOME/ccminer" && cd "$HOME/ccminer"
 
-# Mengunduh file ccminer dan start.sh
-echo "installing ccminer"
-wget https://raw.githubusercontent.com/Darktron/pre-compiled/generic/ccminer
+# Mengunduh file ccminer
+echo "Installing ccminer..."
+wget -O ccminer https://raw.githubusercontent.com/Darktron/pre-compiled/generic/ccminer
+
+# Cek apakah file berhasil diunduh
+if [ ! -f "$HOME/ccminer/ccminer" ]; then
+    echo "Error: Gagal mengunduh ccminer. Periksa koneksi internet atau URL."
+    exit 1
+fi
+
+# Memberikan izin eksekusi pada file ccminer
+chmod +x "$HOME/ccminer/ccminer"
 
 # Membuat file config.json dengan isi sesuai permintaan
-echo "creating configuration..."
+echo "Creating configuration..."
 cat <<EOF > "$HOME/ccminer/config.json"
 {
     "pools": [{
@@ -60,23 +70,18 @@ cat <<EOF > "$HOME/ccminer/config.json"
 }
 EOF
 
-# Memberikan izin eksekusi pada file ccminer dan start.sh
-echo "set mode.."
-chmod +x "$HOME/ccminer/ccminer"
-
-# Menambahkan perintah untuk menjalankan start.sh saat membuka Termux
-echo "configurating auto run ccminer..."
-
-if ! grep -q "ccminer -c $HOME/ccminer/config.json" ~/.bashrc; then
+# Menambahkan perintah untuk menjalankan ccminer saat membuka Termux
+echo "Configuring auto run ccminer..."
+if ! grep -q "$HOME/ccminer/ccminer -c $HOME/ccminer/config.json" ~/.bashrc; then
+    echo "# Auto run ccminer" >> ~/.bashrc
     echo "$HOME/ccminer/ccminer -c $HOME/ccminer/config.json" >> ~/.bashrc
 fi
 
 # Memberikan informasi selesai
 clear
-echo -e "installation success!\n"
+echo -e "Installation success!\n"
 sleep 1
-echo "start mining...."
-
+echo "Start mining...."
 sleep 1
 clear
 "$HOME/ccminer/ccminer" -c "$HOME/ccminer/config.json"
