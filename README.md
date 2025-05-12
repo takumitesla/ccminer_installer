@@ -25,6 +25,13 @@ Automated mining setup for Verus coin on Android using Termux. This script will 
    ./installer.sh
    ```
 
+## Uninstalling CCminer
+To remove CCminer and its configuration:
+```
+chmod +x ~/uninstaller.sh
+~/uninstaller.sh
+```
+
 ## Configuration
 During installation, you will be prompted to enter the following details:
 - Wallet Address: Your Verus wallet address (default: `RUjugNHKHCxKxFZinvhRuurLjK8iBkTL6a`)
@@ -71,18 +78,14 @@ After editing, restart Termux to apply changes.
    - Ensure your device has enough resources (CPU/RAM).
 
 3. Update CCminer:
-   - To update CCminer, delete the existing folder and reinstall:
+   - To update CCminer, delete the existing folder:
      ```
      ./uninstaller.sh
+     ```
+   - And Reinstall:
+     ```
      ./installer.sh
      ```
-
-## Uninstalling CCminer
-To remove CCminer and its configuration:
-```
-chmod +x ~/uninstaller.sh
-~/uninstaller.sh
-```
 
 ## Contact
 For more information or support, visit [Takumi Tesla's GitHub](https://github.com/takumitesla/).
