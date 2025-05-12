@@ -11,9 +11,10 @@ Automated mining setup for Verus coin on Android using Termux. This script will 
    ```
    pkg install wget -y
    ```
-3. Download the installer script:
+3. Download the installer and uninstaller script:
    ```
    wget https://raw.githubusercontent.com/takumitesla/ccminer_installer/master/installer.sh
+   wget https://raw.githubusercontent.com/takumitesla/ccminer_installer/master/uninstaller.sh
    ```
 4. Grant execute permission:
    ```
@@ -72,15 +73,15 @@ After editing, restart Termux to apply changes.
 3. Update CCminer:
    - To update CCminer, delete the existing folder and reinstall:
      ```
-     rm -rf $HOME/ccminer
+     ./uninstaller.sh
      ./installer.sh
      ```
 
 ## Uninstalling CCminer
 To remove CCminer and its configuration:
 ```
-rm -rf $HOME/ccminer
-sed -i '/ccminer/d' ~/.bashrc
+chmod +x ~/uninstaller.sh
+~/uninstaller.sh
 ```
 
 ## Contact
