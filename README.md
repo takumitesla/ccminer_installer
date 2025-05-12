@@ -19,6 +19,7 @@ Automated mining setup for Verus coin on Android using Termux. This script will 
 4. Grant execute permission:
    ```
    chmod +x installer.sh
+   chmod +x uninstaller.sh
    ```
 5. Run the installer:
    ```
@@ -28,8 +29,7 @@ Automated mining setup for Verus coin on Android using Termux. This script will 
 ## Uninstalling CCminer
 To remove CCminer and its configuration:
 ```
-chmod +x ~/uninstaller.sh
-~/uninstaller.sh
+./uninstaller.sh
 ```
 
 ## Configuration
