@@ -3,7 +3,7 @@
 uninstall_program() {
   echo "Menghapus program..."
   if [ -d "$HOME/ccminer" ]; then
-    rm -r "$HOME/ccminer"
+    rm -rf "$HOME/ccminer"
     echo -e "Program berhasil dihapus.\n"
   else
     echo -e "Program tidak ditemukan.\n"
