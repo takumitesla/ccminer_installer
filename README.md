@@ -88,4 +88,4 @@ After editing, restart Termux to apply changes.
      ```
 
 ## Contact
-For more information or support, visit [Takumi Tesla's GitHub](https://github.com/takumitesla/).
+For more information or support, Takumi Tesla's Email : [takumitesla@gmail.com](takumitesla@gmail.com).
